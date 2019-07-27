@@ -16,6 +16,11 @@ footer a:hover {
     text-decoration: none;
 }
 
+.test-content {
+    height: 1000px;
+    background-image: linear-gradient(red, blue);
+}
+
 /*---Media Queries --*/
 /* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
 /* @media (max-width: 768px) {
@@ -38,7 +43,13 @@ footer a:hover {
         order: 2;
     } */
 
-    .content {
-        height: 700px;
+    .scroll-wrapper {
+        position: relative;
+        height: 85vh;
+    }
+
+    .scroll-col {
+        height: 100%;
+        overflow: scroll;
     }
 }
