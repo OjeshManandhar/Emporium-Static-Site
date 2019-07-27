@@ -4,11 +4,11 @@ nav {
 
 footer {
     background-color: #264155;
-    color: white;
+    color: #aaa;
 }
 
 footer a {
-    color: white
+    color: #aaa
 }
 
 /*---Media Queries --*/
