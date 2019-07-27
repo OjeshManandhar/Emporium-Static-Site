@@ -1,0 +1,73 @@
+nav {
+    background-color: #264155;
+}
+
+footer {
+    background-color: #264155;
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    color: #66f;
+    text-decoration: none;
+}
+
+.test-content {
+    height: 1000px;
+    background-image: linear-gradient(red, blue);
+}
+
+/*---Media Queries --*/
+/* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
+/* @media (max-width: 768px) {
+    .col-calender {
+        order: 2;
+    }
+
+    .col-graph {
+        order: 1;
+    }
+} */
+
+/* Medium (md) devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* .col-calender {
+        order: 1;
+    }
+
+    .col-graph {
+        order: 2;
+    } */
+
+    .scroll-wrapper {
+        position: relative;
+        height: 85vh;
+    }
+
+    .scroll-col {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-left: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #264155;
+    border-radius: 0;
+}
