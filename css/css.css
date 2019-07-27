@@ -1,3 +1,15 @@
+.content {
+    height: 500px
+}
+
+.col-calender {
+    height: 100%;
+}
+
+.col-graph {
+    height: 100%;
+}
+
 /*---Media Queries --*/
 /* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
 @media (max-width: 768px) {
