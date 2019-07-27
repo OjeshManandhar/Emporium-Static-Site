@@ -50,6 +50,24 @@ footer a:hover {
 
     .scroll-col {
         height: 100%;
-        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-left: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #264155;
+    border-radius: 0;
 }
