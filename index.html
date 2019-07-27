@@ -17,7 +17,7 @@
     <body>
 
         <!-- NavBar -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" style="background-color: #264155;">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="./images/logo.png" width="35" height="35" class="d-inline-block align-top" alt="Emporium">
@@ -54,12 +54,26 @@
         </nav>
 
         <!-- Content -->
-        <div class="container d-flex content" style="background-color: red;">
+        <div class="container my-2" style="border: 1px solid black;">
+            <div class="row padding d-flex align-items-stretch content" style="border: 1px solid black;">
+                <div class="col-md-8 col-sm-12 order-md-2" style="border: 1px solid black;">
+                    Graph
+                </div>
+
+                <div class="col-md-4 col-sm-12 order-md-1 d-flex flex-column" style="border: 1px solid black;">
+                    <div class="row padding flex-fill" style="border: 1px solid black;">
+                        Calender
+                    </div>
+                    <div class="row padding flex-fill" style="border: 1px solid black;">
+                        News
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Footer -->
-        <footer class="container page-footer font-small blue pt-4">
-            <div class="container-fluid text-center text-md-left">
+        <footer class="page-footer font-small blue pt-4">
+            <div class="container text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <h5 class="text-uppercase">Footer Content</h5>

@@ -1,3 +1,11 @@
+nav {
+    background-color: #264155;
+}
+
+footer {
+    background-color: #264155;
+}
+
 /*---Media Queries --*/
 /* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
 @media (max-width: 768px) {
@@ -19,5 +27,9 @@
 
     .col-graph {
         order: 2;
+    }
+
+    .content {
+        height: 700px;
     }
 }
