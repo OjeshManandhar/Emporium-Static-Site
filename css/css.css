@@ -1,0 +1,23 @@
+/*---Media Queries --*/
+/* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
+@media (max-width: 768px) {
+    .col-calender {
+        order: 2;
+    }
+
+    .col-graph {
+        order: 1;
+    }
+}
+
+
+/* Medium (md) devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .col-calender {
+        order: 1;
+    }
+
+    .col-graph {
+        order: 2;
+    }
+}
