@@ -56,18 +56,18 @@ footer a:hover {
 }
 
 /* Scroll Bar */
-::-webkit-scrollbar {
+.scroll-col::-webkit-scrollbar {
     width: 3px;
     height: 3px;
     border-left: 0;
     background: rgba(0, 0, 0, 0.1);
 }
 
-::-webkit-scrollbar-track {
+.scroll-col::-webkit-scrollbar-track {
     background: none;
 }
 
-::-webkit-scrollbar-thumb {
+.scroll-col::-webkit-scrollbar-thumb {
     background: #264155;
     border-radius: 0;
 }
