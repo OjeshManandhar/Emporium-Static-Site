@@ -17,7 +17,8 @@ footer a:hover {
 }
 
 .test-content {
-    height: 1000px;
+    /* height: 1000px; */
+    height: 100%;
     background-image: linear-gradient(red, blue);
 }
 
