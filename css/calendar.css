@@ -1,4 +1,4 @@
-.table-container {
+.calendar-container {
   width: 300px;
   border: 1px solid black;
   border-radius: 15px 15px 10px 10px;
@@ -29,15 +29,14 @@
   flex-grow: 1;
 }
 
-table {
+.calendar-table {
   /* height: 250px; */
   width: 300px;
   text-align: center;
   font: 16px "Open Sans";
   padding: 0px;
   margin: 0px;
-  /* for tr border un-comment this */
-  /* border-collapse: collapse; */
+  border-collapse: separate;
   /* border: 1px solid black; */
   border-spacing: 5px;
 }

@@ -32,7 +32,7 @@ function noOfDays(date) {
 
 function createCalendar(date = new Date()) {
   const container = document.getElementById('news-calendar').appendChild(document.createElement('div'));
-  container.className = 'table-container';
+  container.className = 'calendar-container';
 
   // month-year
   const monthYear = container.appendChild(document.createElement('div'));
@@ -57,6 +57,7 @@ function createCalendar(date = new Date()) {
 
   // table
   const table = container.appendChild(document.createElement('table'));
+  table.className = 'calendar-table';
   
   weekdays = table.appendChild(document.createElement('tr'));
   weekdays.className = 'weekdays';
