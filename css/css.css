@@ -34,8 +34,8 @@ footer a:hover {
     }
 } */
 
-/* Medium (md) devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+/* Large (lg) devices (992px and up) */
+@media (min-width: 992px) {
     /* .col-calender {
         order: 1;
     }
