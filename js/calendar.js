@@ -200,5 +200,14 @@ function renderCalendar(date = new Date()) {
     }
 }
 
+function renderNewsList(date = new Date()) {
+    const newsListings = document.getElementById('news-listings');
+
+    for (var key in newsEvents) {
+        newsListings.innerHTML += newsEvents[key][0] + '<br />' + newsEvents[key][1] + '<br /><br />';
+    }
+}
+
 // createCalendar(new Date());
 renderCalendar();
+renderNewsList();
