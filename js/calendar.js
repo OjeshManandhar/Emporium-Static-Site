@@ -40,9 +40,9 @@ function generateId(date, day) {
     }
 
     if (day < 10) {
-        id += `0${day}`;
+        id += `0${day}-cal`;
     } else {
-        id += `${day}`;
+        id += `${day}-cal`;
     }
 
     return id;
@@ -50,6 +50,8 @@ function generateId(date, day) {
 
 function findNewsOnDate(date) {
     var news = null;
+
+    date = date.replace('-cal', '');
 
     for (var key in newsEvents) {
         if (key === date) {
@@ -195,16 +197,44 @@ function renderCalendar(date = new Date()) {
 
         day.id = id;
         day.addEventListener('click', function(e) {
-            alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
+            // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
+            removeNewsList();
+            renderNewsList(this.id);
         });
     }
 }
 
-function renderNewsList(date = new Date()) {
-    const newsListings = document.getElementById('news-listings');
+function removeNewsList() {
+    const parent = document.getElementById('news-listings');
+    var child;
+
+    
+    for (var i = 0; i < parent.childNodes.length; i++) {
+        if (parent.childNodes[i].className == 'news') {
+            child = parent.childNodes[i];
+          break;
+        }        
+    }
+
+    parent.removeChild(child);
+}
+
+function renderNewsList(date = null) {
+    const news = document.getElementById('news-listings').appendChild(document.createElement('div'));
+    news.className = 'news';
+    news.innerHTML = 'No news';
+
+    if (date === null) {
+        date = generateId(new Date(), new Date().getDate());
+    }
+    
+    date = date.replace('-cal', '');
 
     for (var key in newsEvents) {
-        newsListings.innerHTML += newsEvents[key][0] + '<br />' + newsEvents[key][1] + '<br /><br />';
+        if (key === date) {
+            news.innerHTML = newsEvents[key][0] + '<br />' + newsEvents[key][1] + '<br /><br />';
+            break;
+        }
     }
 }
 
