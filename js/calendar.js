@@ -30,6 +30,35 @@ function noOfDays(date) {
   return days[month];
 }
 
+function generateId(date, day) {
+  var id = `${date.getFullYear()}-`;
+
+  if ((date.getMonth() + 1) < 10) {
+    id += `0${date.getMonth() + 1}-`;
+  } else {
+    id += `${date.getMonth() + 1}-`;
+  }
+
+  if (day < 10) {
+    id += `0${day}`;
+  } else {
+    id += `${day}`;
+  }
+
+  return id;
+}
+
+function findNewsOnDate(date) {
+  var news = null;
+
+  for (var key in newsEvents) {
+    if (key === date) {
+      news = newsEvents[key][0] + '\n\n' + newsEvents[key][1];
+    }
+  }
+  return news;
+}
+
 function createCalendar(date = new Date()) {
   const container = document.getElementById('news-calendar').appendChild(document.createElement('div'));
   container.className = 'calendar-container';
@@ -69,7 +98,8 @@ function createCalendar(date = new Date()) {
   weekdays.appendChild(document.createElement('td')).innerHTML = 'Fr';
   weekdays.appendChild(document.createElement('td')).innerHTML = 'Sa';
 
-  let week, day, prevMonDate, nextMonthDate = 1;
+  let week, day, id;
+  let prevMon, nextMon, prevMonDate, curMonDate, nextMonthDate;
   let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   let sum = noOfDays(date) + firstDay;
   let noOfWeeks = Math.floor(sum/7);
@@ -78,10 +108,18 @@ function createCalendar(date = new Date()) {
   }
 
   if (date.getMonth() === 0) {
-    prevMonDate = noOfDays(new Date(date.getFullYear() - 1, 11)) - firstDay + 1;
+    prevMon = new Date(date.getFullYear() - 1, 11, 1);
   } else {
-    prevMonDate = noOfDays(new Date(date.getFullYear(), date.getMonth() - 1)) - firstDay + 1;
+    prevMon = new Date(date.getFullYear(), date.getMonth() - 1, 1);
   }
+  prevMonDate = noOfDays(prevMon) - firstDay + 1;
+
+  if (date.getMonth() === 11) {
+    nextMon = new Date(date.getFullYear() + 1, 1, 1);
+  } else {
+    nextMon = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+  }
+  nextMonthDate = 1;
 
   for (var i = 0; i < noOfWeeks*7; i++) {
     if (i%7 === 0) {
@@ -90,29 +128,39 @@ function createCalendar(date = new Date()) {
     }
     
     if (i < firstDay) {
+      id = generateId(prevMon, prevMonDate);
       day = week.appendChild(document.createElement('td'));
       day.innerHTML = prevMonDate++;
       day.className = 'disable';
     } else if (i < sum) {
+      curMonDate = i - firstDay + 1;
+      id = generateId(date, curMonDate);
       day = week.appendChild(document.createElement('td'));
-      day.innerHTML = (i - firstDay + 1);
+      day.innerHTML = curMonDate;
 
       var newDate = new Date();
       // dosent work as it compares time also
-      // if (new Date() === new Date(date.getFullYear(), date.getMonth(), (i - firstDay + 1))) {
+      // if (new Date() === new Date(date.getFullYear(), date.getMonth(), curMonDate)) {
       if (
         newDate.getFullYear() === date.getFullYear() &&
         newDate.getMonth() === date.getMonth() &&
-        newDate.getDate() === (i - firstDay + 1)
+        newDate.getDate() === curMonDate
       ) {
         day.className = 'active';
       }
     } else {
+      id = generateId(nextMon, nextMonthDate);
       day = week.appendChild(document.createElement('td'));
       day.innerHTML = nextMonthDate++;
       day.className = 'disable';
     }
+
+    day.id = id;
+    day.addEventListener('click', function(e) {
+      alert(findNewsOnDate(this.id));
+    });
   }
 }
 
-createCalendar();
+// createCalendar(new Date());
+createCalendar(new Date(2019, 6));
