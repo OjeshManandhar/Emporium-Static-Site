@@ -83,3 +83,14 @@ tr {
     box-shadow: inset 0 0 1px 1px #ff8263, 0 1px 3px -1px #ff8263;
     background: #ff8263;
 }
+
+#news-listings .news-head {
+    color: #4c5373;
+    font: 300 28px "Open Sans";
+    text-transform: uppercase;
+}
+
+#news-listings .new-detail {
+    color: #4c5373;
+    font: 16px "Open Sans";
+}

@@ -210,7 +210,7 @@ function removeNewsList() {
 
     
     for (var i = 0; i < parent.childNodes.length; i++) {
-        if (parent.childNodes[i].className == 'news') {
+        if (parent.childNodes[i].className == 'news-detail') {
             child = parent.childNodes[i];
           break;
         }        
@@ -221,8 +221,7 @@ function removeNewsList() {
 
 function renderNewsList(date = null) {
     const news = document.getElementById('news-listings').appendChild(document.createElement('div'));
-    news.className = 'news';
-    news.innerHTML = 'No news';
+    news.className = 'news-detail';
 
     if (date === null) {
         date = generateId(new Date(), new Date().getDate());
@@ -230,9 +229,13 @@ function renderNewsList(date = null) {
     
     date = date.replace('-cal', '');
 
+    news.innerHTML = 'No news for <b>' + date + '</b>';
+
     for (var key in newsEvents) {
         if (key === date) {
-            news.innerHTML = newsEvents[key][0] + '<br />' + newsEvents[key][1] + '<br /><br />';
+            news.innerHTML = 'New for <b>' + date + '</b> <br /> <br />' + 
+                '<b>' + newsEvents[key][0] + '</b>' +
+                '<br /> <br />' + newsEvents[key][1];
             break;
         }
     }
