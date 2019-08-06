@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 
-.month-year {
+#month-year {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,16 +20,21 @@
     text-transform: uppercase;
 }
 
-.month-year * {
+#month-year * {
     text-align: center;
     /* border: 1px solid red; */
 }
 
-.month-year .cur-month {
+#month-year .prev-month:hover,
+#month-year .next-month:hover {
+    color: #ff8263;
+}
+
+#month-year .cur-month {
     flex-grow: 1;
 }
 
-.calendar-table {
+#calendar-table {
     /* height: 250px; */
     width: 300px;
     text-align: center;

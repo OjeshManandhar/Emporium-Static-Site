@@ -59,17 +59,43 @@ function findNewsOnDate(date) {
     return news;
 }
 
-function createCalendar(date = new Date()) {
+function removeCalendar() {
+    const newsCalendar = document.getElementById('news-calendar');
+    var calendarContainer;
+
+    for (var i = 0; i < newsCalendar.childNodes.length; i++) {
+        if (newsCalendar.childNodes[i].className == "calendar-container") {
+            calendarContainer = newsCalendar.childNodes[i];
+          break;
+        }        
+    }
+
+    newsCalendar.removeChild(calendarContainer);
+}
+
+function renderCalendar(date = new Date()) {
     const container = document.getElementById('news-calendar').appendChild(document.createElement('div'));
     container.className = 'calendar-container';
 
     // month-year
     const monthYear = container.appendChild(document.createElement('div'));
-    monthYear.className = 'month-year';
+    monthYear.id = 'month-year';
 
-    const prevYear = monthYear.appendChild(document.createElement('dev'));
-    prevYear.className = 'prev-month';
-    prevYear.innerHTML = '<';
+    const prevMonth = monthYear.appendChild(document.createElement('dev'));
+    prevMonth.className = 'prev-month';
+    prevMonth.innerHTML = '<';
+    prevMonth.addEventListener('click', function(e) {
+        var prevMon;
+
+        if (date.getMonth() === 0) {
+            prevMon = new Date(date.getFullYear() - 1, 11, 1);
+        } else {
+            prevMon = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+        }
+
+        removeCalendar();
+        renderCalendar(prevMon);
+    });
 
     const curYear = monthYear.appendChild(document.createElement('dev'));
     curYear.className = 'cur-month';
@@ -80,13 +106,25 @@ function createCalendar(date = new Date()) {
     year.className = 'year';
     year.innerHTML = date.getFullYear();
 
-    const nextYear = monthYear.appendChild(document.createElement('dev'));
-    nextYear.className = 'next-month';
-    nextYear.innerHTML = '>';
+    const nextMonth = monthYear.appendChild(document.createElement('dev'));
+    nextMonth.className = 'next-month';
+    nextMonth.innerHTML = '>';
+    nextMonth.addEventListener('click', function(e) {
+        var nextMon;
+
+        if (date.getMonth() === 11) {
+            nextMon = new Date(date.getFullYear() + 1, 1, 1);
+        } else {
+            nextMon = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+        }
+
+        removeCalendar();
+        renderCalendar(nextMon);
+    });
 
     // table
     const table = container.appendChild(document.createElement('table'));
-    table.className = 'calendar-table';
+    table.id = 'calendar-table';
 
     weekdays = table.appendChild(document.createElement('tr'));
     weekdays.className = 'weekdays';
@@ -157,10 +195,10 @@ function createCalendar(date = new Date()) {
 
         day.id = id;
         day.addEventListener('click', function(e) {
-        alert(findNewsOnDate(this.id));
+            alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
         });
     }
 }
 
 // createCalendar(new Date());
-createCalendar(new Date(2019, 6));
+renderCalendar();
