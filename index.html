@@ -72,86 +72,50 @@
         </nav>
 
         <!-- Content -->
-        <!-- <div class="container my-2 content">
-            <div class="row d-flex align-items-stretch scroll-wrapper"> 
-                <div class="col-lg col-md-12 order-lg-2 p-0 scroll-col">
-                    <div class="col-lg col-md-12 text-center date-picker-area">
-                        <div class="input-group mb-3">
-                            <input type="date" class="form-control" placeholder="Recipient's username">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="analyse-button">Analyse</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="graph-space" class="px-2 py-1">
-                        <img 
-                            style="
-                                width: 100%;
-                            "
-                            src="./images/2012-03.png"
-                        />
-                    </div>
-                </div>
-                <div class="col-lg-auto col-md-12 order-lg-1 scroll-wrapper-news d-flex flex-column">
-                    <div class="row">
-                        <div class="col-lg-12 p-0">
-                            <div id="calendar" class="px-2 py-1"></div>
-                        </div>
-                    </div>
-                    <div class="row flex-fill">
-                        <div class="col-lg-12 p-0 scroll-col">
-                            <div id="news-listings" class="px-2 py-1 mt-2">
-                                <div class="news-head">News</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- New Layout -->
         <div class="container my-3 content">
-            <!-- Add scroll-wrapper here -->
+            <!-- Add scroll-wrapper here to make graph scrollable -->
             <div class="row">
-                <!-- Add scroll-col here -->
-                <div class="col order-lg-2 text-center py-5 card">
-                    <!-- Graph -->
-                    <div id="graph-space" class="container-fluid">
-                        <div class="row">
-                            <div class="col date-picker-area">
-                                <div class="input-group mb-3">
-                                    <input type="date" class="form-control" placeholder="Recipient's username">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="analyse-button">Analyse</button>
+                <!-- Add scroll-col here to make graph scrollable -->
+                <div class="col order-lg-2 p-0 m-0">
+                    <!-- Graph  -->
+                    <div class="card">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col date-picker-area">
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control" placeholder="Recipient's username">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="analyse-button">Analyse</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <img 
-                                    style="
-                                        width: 100%;
-                                    "
-                                    src="./images/2012-03.png"
-                                />
+                            <div class="row">
+                                <div class="col">
+                                    <img 
+                                        style="
+                                            width: 100%;
+                                        "
+                                        src="./images/2012-03.png"
+                                    />
+                                </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                 </div>
 
-                <hr class="clearfix w-100 d-lg-none pb-2" />
+                <hr class="clearfix w-100 d-lg-none" />
                 <!-- <div class="w-100"></div> -->
 
-                <div class="col col-lg-auto order-lg-1 p-0 m-0 calendar-news-section">
+                <div class="col col-lg-auto order-lg-1 calendar-news-section">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div id="calendar" class="col card">
-                                <!-- Calendar -->
+                        <div class="row justify-content-center">
+                            <div id="calendar" class="col-auto card">
+                                Calendar
                             </div>
 
-                            <hr class="clearfix w-100 d-sm-block d-md-none d-lg-block" />
-                            <!-- <div class="d-sm-block d-md-none d-lg-block w-100"></div> -->
+                            <!-- <hr class="clearfix w-100 d-md-none d-lg-block" /> -->
+                            <div class="d-block d-sm-none w-100"></div>
 
                             <div id="news-listings" class="col card">
                                 <!-- News -->
