@@ -77,7 +77,7 @@ function removeCalendar() {
 
 function renderCalendar(date = new Date()) {
     const container = document.getElementById('calendar').appendChild(document.createElement('div'));
-    container.className = 'calendar-container';
+    container.classList.add('calendar-container');
 
     // const container = document.getElementById('calendar');
     // container.classList.add('calendar-container');
