@@ -62,7 +62,7 @@ function findNewsOnDate(date) {
 }
 
 function removeCalendar() {
-    const newsCalendar = document.getElementById('news-calendar');
+    const newsCalendar = document.getElementById('calendar');
     var calendarContainer;
 
     for (var i = 0; i < newsCalendar.childNodes.length; i++) {
@@ -76,8 +76,11 @@ function removeCalendar() {
 }
 
 function renderCalendar(date = new Date()) {
-    const container = document.getElementById('news-calendar').appendChild(document.createElement('div'));
-    container.className = 'calendar-container';
+    const container = document.getElementById('calendar').appendChild(document.createElement('div'));
+    container.classList.add('calendar-container');
+
+    // const container = document.getElementById('calendar');
+    // container.classList.add('calendar-container');
 
     // month-year
     const monthYear = container.appendChild(document.createElement('div'));

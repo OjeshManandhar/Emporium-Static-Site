@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+html {
+    min-width: 350px !important;
+}
+
+body {
+    font: "Open Sans";
+}
+
 nav {
     background-color: #264155;
 }
@@ -14,6 +24,31 @@ footer a {
 footer a:hover {
     color: #66f;
     text-decoration: none;
+}
+
+.card {
+    /* border: 1px solid black; */
+    padding: 8px !important;
+    margin: 10px !important;
+    box-shadow: inset 0 0 2px 2px #264155;
+    border-radius: 2px;
+}
+
+.calendar-news-section {
+    width: 290px;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+#calendar {
+    /* width: 320px; */
+    padding: 0px;
+    margin: 0px;
+}
+
+#news-listings {
+    max-height: 355px !important;
+    overflow-y: scroll; 
 }
 
 .test-content {
@@ -36,46 +71,40 @@ footer a:hover {
 } */
 
 /* Large (lg) devices (992px and up) */
-@media (min-width: 992px) {
-    /* .col-calender {
+/* @media (min-width: 992px) {
+    .col-calender {
         order: 1;
     }
 
     .col-graph {
         order: 2;
-    } */
-
-    .scroll-wrapper,
-    .scroll-wrapper-news {
-        position: relative;
-        height: 85vh;
     }
+} */
 
-    .scroll-wrapper-news {
-        width: 350px;
-    }
+.scroll-wrapper-news {
+    position: relative;
+    max-height: 85vh !important;
+}
 
-    .scroll-col {
-        height: 100%;
-        overflow-x: hidden;
-        overflow-y: scroll;
-    }
+.scroll-col-news {
+    max-height: 85vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 /* Scroll Bar */
-.scroll-col::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 5px;
     height: 5px;
     border-left: 0;
-    /* background: rgba(0, 0, 0, 0.1); */
-    background: white;
+    background: rgba(0, 0, 0, 0.1);
 }
 
-.scroll-col::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: none;
 }
 
-.scroll-col::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #264155;
     border-radius: 0;
 }
