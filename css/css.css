@@ -48,6 +48,7 @@ footer a:hover {
 
 #news-listings {
     max-height: 355px !important;
+    overflow-y: scroll; 
 }
 
 .test-content {
