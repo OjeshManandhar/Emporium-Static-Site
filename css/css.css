@@ -112,5 +112,5 @@ footer a:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #264155;
-    border-radius: 0;
+    border-radius: 10px;
 }

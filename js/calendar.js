@@ -207,7 +207,7 @@ function renderCalendar(date = new Date()) {
         day.id = id;
         day.addEventListener('click', function(e) {
             // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
-            showNewsOfDate(this.id);
+            showNewsOfDate(this.id.replace('-cal', ''));
         });
     }
 }
@@ -231,7 +231,7 @@ function removeNewsList() {
 }
 
 function showNewsOfDate(id) {
-    const newsId = id.replace('-cal', '-news');
+    const newsId = id + '-news';
 
     // No news for the current month i.e. no div with class 'news-list'
     if (document.getElementsByClassName('news-list').length === 0) {
@@ -303,6 +303,10 @@ function renderNewsList(date = new Date()) {
             let newsSingle = news.appendChild(document.createElement('div'));
             newsSingle.id = `${newsList[i].key}-news`;
             newsSingle.classList.add('news-single');
+            newsSingle.addEventListener('click', function(e) {
+                // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
+                showNewsOfDate(newsList[i].key);
+            });
 
             const date = newsSingle.appendChild(document.createElement('div'));
             date.className = 'date';

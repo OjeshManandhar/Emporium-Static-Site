@@ -90,7 +90,7 @@ tr {
 
 .news-single {
     padding-bottom: 1px;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     margin-bottom: 5px;
     cursor: pointer;
 }
@@ -104,14 +104,11 @@ tr {
     font-weight: bold;
 }
 
-.main-news {
-    font-size: 13px;
-}
-
 .main-news-inactive {
     display: none;
 }
 
 .main-news-active {
     display: block;
+    font-size: 13px;
 }
