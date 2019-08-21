@@ -84,13 +84,24 @@ tr {
     background: #ff8263;
 }
 
-#news-listings .news-head {
-    color: #4c5373;
-    font: 300 28px "Open Sans";
-    text-transform: uppercase;
+.no-news b {
+    color: blue;
 }
 
-#news-listings .new-detail {
-    color: #4c5373;
-    font: 16px "Open Sans";
+.news-single {
+    padding-bottom: 1px;
+    box-shadow: 2px 2px 5px 0px #d9dce5;
+    margin-bottom: 5px;
+}
+
+.main-news {
+    font-size: 13px;
+}
+
+.main-news-inactive {
+    display: none;
+}
+
+.main-news-active {
+    display: block;
 }

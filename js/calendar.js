@@ -286,7 +286,7 @@ function renderNewsList(date = new Date()) {
         // console.log('No news Found');
 
         news.className = 'no-news';
-        news.innerHTML = `No news for ${monthName(date)}`; 
+        news.innerHTML = `No news for <b>${monthName(date)}</b>`; 
     } else {
         // console.log('newsList:', newsList);
         
