@@ -34,7 +34,12 @@ footer a:hover {
     border-radius: 2px;
 }
 
-.calendar-news-section {
+#graph-section {
+    max-height: 80vh !important;
+    overflow-y: scroll;
+}
+
+#calendar-news-section {
     width: 290px;
     margin: 0px auto;
     padding: 0px;
@@ -97,7 +102,7 @@ footer a:hover {
     width: 5px;
     height: 5px;
     border-left: 0;
-    background: rgba(0, 0, 0, 0.1);
+    /* background: rgba(0, 0, 0, 0.1); */
 }
 
 ::-webkit-scrollbar-track {
