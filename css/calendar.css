@@ -90,8 +90,18 @@ tr {
 
 .news-single {
     padding-bottom: 1px;
-    box-shadow: 2px 2px 5px 0px #d9dce5;
+    border-bottom: 2px solid black;
     margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.news-single-active {
+    box-shadow: 2px 2px 5px 0px #d9dce5;
+}
+
+.news-single .date {
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .main-news {

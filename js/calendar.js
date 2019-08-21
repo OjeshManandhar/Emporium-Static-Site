@@ -238,7 +238,6 @@ function showNewsOfDate(id) {
         return;
     }
 
-    var parent = document.getElementById(newsId);
     var child;
 
     // Disable already active main-news
@@ -246,19 +245,27 @@ function showNewsOfDate(id) {
     if (child.length !== 0) {
         child[0].classList.replace('main-news-active', 'main-news-inactive');
     }
+    child = document.getElementsByClassName('news-single-active');
+    if (child.length !== 0) {
+        child[0].classList.remove('news-single-active');
+    }
 
     // Making selected date's news active
-    if (parent === null) {
+    var newsSingle = document.getElementById(newsId);
+
+    // No news on the given day
+    if (newsSingle === null) {
         return;
     }
 
-    for (var i = 0; i < parent.childNodes.length; i++) {
-        if (parent.childNodes[i].classList.contains('main-news-inactive')) {
-            child = parent.childNodes[i];
+    for (var i = 0; i < newsSingle.childNodes.length; i++) {
+        if (newsSingle.childNodes[i].classList.contains('main-news-inactive')) {
+            child = newsSingle.childNodes[i];
             break;
         }
     }
     child.classList.replace('main-news-inactive', 'main-news-active');
+    newsSingle.classList.add('news-single-active');
 }
 
 function renderNewsList(date = new Date()) {
@@ -295,21 +302,19 @@ function renderNewsList(date = new Date()) {
         for (let i = 0; i < newsList.length; i++) {
             let newsSingle = news.appendChild(document.createElement('div'));
             newsSingle.id = `${newsList[i].key}-news`;
-            newsSingle.className = 'news-single';
-            // newsSingle.innerHTML = newsList[i].key;
+            newsSingle.classList.add('news-single');
+
+            const date = newsSingle.appendChild(document.createElement('div'));
+            date.className = 'date';
+            date.innerHTML = newsList[i].key;
 
             const heading = newsSingle.appendChild(document.createElement('div'));
             heading.className = 'heading';
             heading.innerHTML = newsList[i].news[0];
 
             const mainNews = newsSingle.appendChild(document.createElement('div'));
-            mainNews.classList.add('main-news');
-            // To keep main-news hidden
             mainNews.classList.add('main-news-inactive');
             mainNews.innerHTML = newsList[i].news[1];
-
-            // To make main-news visible
-            // mainNews.classList.remove('main-news-inactive');
         }
 
         // showNewsOfDate(generateId(date, date.getDate()));
