@@ -24,6 +24,10 @@
     text-align: center;
     /* border: 1px solid red; */
 }
+#month-year .prev-month,
+#month-year .next-month {
+    font-size: 30px;
+}
 
 #month-year .prev-month:hover,
 #month-year .next-month:hover {
@@ -53,7 +57,7 @@ tr {
 }
 
 .weekdays {
-    color: #91d9ff;
+    color: #78aafb;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -85,15 +89,17 @@ tr {
 }
 
 .no-news b {
+    font-size: 17px;
     font-weight: 400;
-    text-transform: uppercase;
+    font-variant-caps: small-caps;
 }
 
 .news-single {
     color: black;
-    padding-top: 5px;
+    padding: 5px;
     padding-bottom: 1px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgb(163, 163, 163);
+    margin-bottom: 2px;
     cursor: pointer;
 }
 
@@ -107,7 +113,10 @@ tr {
 }
 
 .news-single-active {
-    background: #f6f6f675;
+    border-radius: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    background: #e9eaf0a9;
+    /* background: rgba(128, 128, 128, 0.192); */
 }
 
 .news-single .date {
