@@ -323,7 +323,12 @@ function renderNewsList(date = new Date()) {
             mainNews.innerHTML = newsList[i].news[1];
         }
 
-        // showNewsOfDate(generateId(date, date.getDate()));
+        if (
+            date.getFullYear() === new Date().getFullYear() &&
+            date.getMonth() === new Date().getMonth()
+        ) {
+            showNewsOfDate(generateId(new Date(), new Date().getDate()).replace('-cal', ''));
+        }
     }
 }
 
