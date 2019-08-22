@@ -40,9 +40,7 @@ footer a:hover {
 }
 
 #calendar-news-section {
-    width: 290px;
-    margin: 0px auto;
-    padding: 0px;
+    width: 325px;
 }
 
 #calendar {
@@ -51,10 +49,15 @@ footer a:hover {
     margin: 0px;
 }
 
+.col-w-325px {
+    width: 325px;
+}
+
 #news-listings {
+    min-width: 250px;
     font-size: 15px;
-    max-height: 355px !important;
-    overflow-y: scroll; 
+    max-height: 312px !important;
+    overflow: scroll; 
 }
 
 .test-content {
@@ -62,40 +65,6 @@ footer a:hover {
     width: 1000px;
     /* height: 100%; */
     background-image: linear-gradient(red, blue);
-}
-
-/*---Media Queries --*/
-/* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
-/* @media (max-width: 768px) {
-    .col-calender {
-        order: 2;
-    }
-
-    .col-graph {
-        order: 1;
-    }
-} */
-
-/* Large (lg) devices (992px and up) */
-/* @media (min-width: 992px) {
-    .col-calender {
-        order: 1;
-    }
-
-    .col-graph {
-        order: 2;
-    }
-} */
-
-.scroll-wrapper-news {
-    position: relative;
-    max-height: 85vh !important;
-}
-
-.scroll-col-news {
-    max-height: 85vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 /* Scroll Bar */

@@ -208,6 +208,8 @@ function renderCalendar(date = new Date()) {
         day.addEventListener('click', function(e) {
             // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
             showNewsOfDate(this.id.replace('-cal', ''));
+            location.href('#');
+            location.href(`#${this.id.replace('-cal', '-news')}`);
         });
     }
 }
