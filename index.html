@@ -79,7 +79,7 @@
                 <div class="col order-lg-2 p-0 m-0">
                     <!-- Graph  -->
                     <div class="card">
-                        <div class="container">
+                        <div id="graph-section" class="container">
                             <div class="row">
                                 <div class="col date-picker-area">
                                     <div class="input-group mb-3">
@@ -100,25 +100,38 @@
                                     />
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col">
+                                    <img 
+                                        style="
+                                            width: 100%;
+                                        "
+                                        src="./images/2012-03.png"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <hr class="clearfix w-100 d-lg-none" />
-                <!-- <div class="w-100"></div> -->
+                <!-- <hr class="clearfix w-100 d-lg-none" /> -->
+                <!-- <div class="w-100 d-lg-none"></div> -->
 
-                <div class="col col-lg-auto order-lg-1 calendar-news-section">
+                <div id="calendar-news-section" class="col-12 col-lg-auto order-lg-1 p-0 m-0">
                     <div class="container-fluid">
                         <div class="row justify-content-center">
-                            <div id="calendar" class="col-auto card">
-                                Calendar
+                            <div class="col- p-0 m-0">
+                                <div class="card p-0 m-0">
+                                    Calendar
+                                    <div id="calendar"></div>
+                                </div>
                             </div>
-
-                            <!-- <hr class="clearfix w-100 d-md-none d-lg-block" /> -->
-                            <div class="d-block d-sm-none w-100"></div>
-
-                            <div id="news-listings" class="col card">
-                                <!-- News -->
+                            
+                            <div class="col-auto col-md col-w-325px p-0 m-0">
+                                <div class="card">
+                                    News
+                                    <div id="news-listings"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

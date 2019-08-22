@@ -28,16 +28,19 @@ footer a:hover {
 
 .card {
     /* border: 1px solid black; */
-    padding: 8px !important;
+    padding: 10px !important;
     margin: 10px !important;
     box-shadow: inset 0 0 2px 2px #264155;
     border-radius: 2px;
 }
 
-.calendar-news-section {
-    width: 290px;
-    margin: 0px auto;
-    padding: 0px;
+#graph-section {
+    max-height: 600px !important;
+    overflow-y: scroll;
+}
+
+#calendar-news-section {
+    width: 295px;
 }
 
 #calendar {
@@ -46,9 +49,15 @@ footer a:hover {
     margin: 0px;
 }
 
+.col-w-325px {
+    width: 295px;
+}
+
 #news-listings {
-    max-height: 355px !important;
-    overflow-y: scroll; 
+    min-width: 250px;
+    font-size: 15px;
+    max-height: 312px !important;
+    overflow: scroll; 
 }
 
 .test-content {
@@ -58,46 +67,12 @@ footer a:hover {
     background-image: linear-gradient(red, blue);
 }
 
-/*---Media Queries --*/
-/* Small (sm) and Extra-small (xs) devices (phones, 768px and down) */
-/* @media (max-width: 768px) {
-    .col-calender {
-        order: 2;
-    }
-
-    .col-graph {
-        order: 1;
-    }
-} */
-
-/* Large (lg) devices (992px and up) */
-/* @media (min-width: 992px) {
-    .col-calender {
-        order: 1;
-    }
-
-    .col-graph {
-        order: 2;
-    }
-} */
-
-.scroll-wrapper-news {
-    position: relative;
-    max-height: 85vh !important;
-}
-
-.scroll-col-news {
-    max-height: 85vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
 /* Scroll Bar */
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
     border-left: 0;
-    background: rgba(0, 0, 0, 0.1);
+    /* background: rgba(0, 0, 0, 0.1); */
 }
 
 ::-webkit-scrollbar-track {
@@ -106,5 +81,5 @@ footer a:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #264155;
-    border-radius: 0;
+    border-radius: 10px;
 }

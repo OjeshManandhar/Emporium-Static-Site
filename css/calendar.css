@@ -84,13 +84,41 @@ tr {
     background: #ff8263;
 }
 
-#news-listings .news-head {
-    color: #4c5373;
-    font: 300 28px "Open Sans";
-    text-transform: uppercase;
+.no-news b {
+    color: blue;
 }
 
-#news-listings .new-detail {
-    color: #4c5373;
-    font: 16px "Open Sans";
+.news-single {
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.news-single:first-child {
+    padding-top: 0px;
+}
+
+.news-single:last-child {
+    border: none;
+    padding-bottom: 0px;
+}
+
+.news-single-active {
+    background: #f6f6f675;
+}
+
+.news-single .date {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.main-news-inactive {
+    display: none;
+}
+
+.main-news-active {
+    display: block;
+    font-size: 13px;
 }

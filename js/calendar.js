@@ -66,7 +66,7 @@ function removeCalendar() {
     var calendarContainer;
 
     for (var i = 0; i < newsCalendar.childNodes.length; i++) {
-        if (newsCalendar.childNodes[i].className == "calendar-container") {
+        if (newsCalendar.childNodes[i].className === "calendar-container") {
             calendarContainer = newsCalendar.childNodes[i];
           break;
         }        
@@ -100,6 +100,9 @@ function renderCalendar(date = new Date()) {
 
         removeCalendar();
         renderCalendar(prevMon);
+
+        removeNewsList();
+        renderNewsList(prevMon);
     });
 
     const curYear = monthYear.appendChild(document.createElement('dev'));
@@ -125,6 +128,9 @@ function renderCalendar(date = new Date()) {
 
         removeCalendar();
         renderCalendar(nextMon);
+
+        removeNewsList();
+        renderNewsList(nextMon);
     });
 
     // table
@@ -201,8 +207,9 @@ function renderCalendar(date = new Date()) {
         day.id = id;
         day.addEventListener('click', function(e) {
             // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
-            removeNewsList();
-            renderNewsList(this.id);
+            showNewsOfDate(this.id.replace('-cal', ''));
+            location.href('#');
+            location.href(`#${this.id.replace('-cal', '-news')}`);
         });
     }
 }
@@ -211,39 +218,119 @@ function removeNewsList() {
     const parent = document.getElementById('news-listings');
     var child;
 
-    
     for (var i = 0; i < parent.childNodes.length; i++) {
-        if (parent.childNodes[i].className == 'news-detail') {
+        if (
+            parent.childNodes[i].className === 'no-news' || 
+            parent.childNodes[i].className === 'news-list'
+
+        ) {
             child = parent.childNodes[i];
-          break;
+            break;
         }        
     }
 
     parent.removeChild(child);
 }
 
-function renderNewsList(date = null) {
-    const news = document.getElementById('news-listings').appendChild(document.createElement('div'));
-    news.className = 'news-detail';
+function showNewsOfDate(id) {
+    const newsId = id + '-news';
 
-    if (date === null) {
-        date = generateId(new Date(), new Date().getDate());
+    // No news for the current month i.e. no div with class 'news-list'
+    if (document.getElementsByClassName('news-list').length === 0) {
+        return;
     }
-    
-    date = date.replace('-cal', '');
 
-    news.innerHTML = 'No news for <b>' + date + '</b>';
+    var child;
+
+    // Disable already active main-news
+    child = document.getElementsByClassName('main-news-active');
+    if (child.length !== 0) {
+        child[0].classList.replace('main-news-active', 'main-news-inactive');
+    }
+    child = document.getElementsByClassName('news-single-active');
+    if (child.length !== 0) {
+        child[0].classList.remove('news-single-active');
+    }
+
+    // Making selected date's news active
+    var newsSingle = document.getElementById(newsId);
+
+    // No news on the given day
+    if (newsSingle === null) {
+        return;
+    }
+
+    for (var i = 0; i < newsSingle.childNodes.length; i++) {
+        if (newsSingle.childNodes[i].classList.contains('main-news-inactive')) {
+            child = newsSingle.childNodes[i];
+            break;
+        }
+    }
+    child.classList.replace('main-news-inactive', 'main-news-active');
+    newsSingle.classList.add('news-single-active');
+}
+
+function renderNewsList(date = new Date()) {
+    const newsList = [];
+    var monthStr = `${date.getFullYear()}-`;
+
+    if ((date.getMonth() + 1) < 10) {
+        monthStr += `0${date.getMonth() + 1}`;
+    } else {
+        monthStr += `${date.getMonth() + 1}`;
+    }
 
     for (var key in newsEvents) {
-        if (key === date) {
-            news.innerHTML = 'New for <b>' + date + '</b> <br /> <br />' + 
-                '<b>' + newsEvents[key][0] + '</b>' +
-                '<br /> <br />' + newsEvents[key][1];
-            break;
+        if (key.indexOf(monthStr) > -1) {
+            newsList.push({
+                key: key,
+                news: [newsEvents[key][0], newsEvents[key][1]]
+            });
+        }
+    }
+
+    const news = document.getElementById('news-listings').appendChild(document.createElement('div'));
+
+    if (newsList.length === 0) {
+        // console.log('No news Found');
+
+        news.className = 'no-news';
+        news.innerHTML = `No news for <b>${monthName(date)}</b>`; 
+    } else {
+        // console.log('newsList:', newsList);
+        
+        news.className = 'news-list';
+
+        for (let i = 0; i < newsList.length; i++) {
+            let newsSingle = news.appendChild(document.createElement('div'));
+            newsSingle.id = `${newsList[i].key}-news`;
+            newsSingle.classList.add('news-single');
+            newsSingle.addEventListener('click', function(e) {
+                // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
+                showNewsOfDate(newsList[i].key);
+            });
+
+            const date = newsSingle.appendChild(document.createElement('div'));
+            date.className = 'date';
+            date.innerHTML = newsList[i].key;
+
+            const heading = newsSingle.appendChild(document.createElement('div'));
+            heading.className = 'heading';
+            heading.innerHTML = newsList[i].news[0];
+
+            const mainNews = newsSingle.appendChild(document.createElement('div'));
+            mainNews.classList.add('main-news-inactive');
+            mainNews.innerHTML = newsList[i].news[1];
+        }
+
+        if (
+            date.getFullYear() === new Date().getFullYear() &&
+            date.getMonth() === new Date().getMonth()
+        ) {
+            showNewsOfDate(generateId(new Date(), new Date().getDate()).replace('-cal', ''));
         }
     }
 }
 
-// createCalendar(new Date());
 renderCalendar();
 renderNewsList();
