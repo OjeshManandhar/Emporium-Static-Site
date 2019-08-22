@@ -197,6 +197,12 @@ function renderCalendar(date = new Date()) {
             ) {
                 day.className = 'active';
             }
+
+            day.addEventListener('click', function(e) {
+                // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
+                showNewsOfDate(this.id.replace('-cal', ''));
+                // document.getElementById(id.replace('-cal', '-news')).scrollIntoView();
+            });
         } else {
             id = generateId(nextMon, nextMonthDate);
             day = week.appendChild(document.createElement('td'));
@@ -205,12 +211,6 @@ function renderCalendar(date = new Date()) {
         }
 
         day.id = id;
-        day.addEventListener('click', function(e) {
-            // alert(findNewsOnDate(this.id)? findNewsOnDate(this.id) : "No news");
-            showNewsOfDate(this.id.replace('-cal', ''));
-            location.href('#');
-            location.href(`#${this.id.replace('-cal', '-news')}`);
-        });
     }
 }
 
