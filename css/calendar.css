@@ -85,7 +85,8 @@ tr {
 }
 
 .no-news b {
-    color: blue;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 .news-single {

@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
 html {
     min-width: 350px !important;
-}
-
-body {
-    font: "Open Sans";
 }
 
 nav {
