@@ -1,0 +1,16 @@
+.col-w-300 {
+    width: 300px;
+}
+
+.card-image {
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+    margin: 0px auto;
+    border-radius: 50%;
+    /* border: 3px solid blue */
+}
+
+.card-text {
+    font-size: 15px;
+}
