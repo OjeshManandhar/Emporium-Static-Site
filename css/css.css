@@ -6,6 +6,10 @@ nav {
     background-color: #264155;
 }
 
+.content {
+    min-height: 80vh;
+}
+
 footer {
     background-color: #264155;
     color: #fff;
